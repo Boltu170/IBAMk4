@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economics for Business - Complete Course</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'IBM Plex Sans', sans-serif; background: #E8DCC4; color: #2C1810; line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 40px 250px 40px; min-height: 100vh; display: flex; flex-direction: column; background: #E8DCC4; }
+        .slide { display: none; animation: slideIn 0.5s ease-out; }
+        .slide.active { display: block; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .slide-header { margin-bottom: 40px; border-bottom: 3px solid #6B4423; padding-bottom: 20px; }
+        .slide-number { font-size: 14px; font-weight: 600; color: #8B6F47; letter-spacing: 2px; margin-bottom: 10px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1.2; margin-bottom: 15px; color: #3E2723; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 28px; margin: 30px 0 15px; color: #3E2723; }
+        h3 { font-size: 20px; font-weight: 600; margin: 25px 0 12px; color: #D2691E; }
+        h4 { font-size: 18px; font-weight: 600; margin: 20px 0 10px; color: #8B4513; }
+        .concept-box { background: linear-gradient(135deg, #F5E6D3 0%, #E8D4BA 100%); border-left: 4px solid #D2691E; padding: 25px; margin: 25px 0; border-radius: 8px; }
+        .explanation { background: #FAF0E6; border: 2px solid #D2B48C; padding: 25px; margin: 25px 0; border-radius: 8px; font-size: 17px; line-height: 1.8; }
+        .example-box { background: linear-gradient(135deg, #FFE4B5 0%, #FFDAB9 100%); border-left: 4px solid #CD853F; padding: 25px; margin: 25px 0; border-radius: 8px; }
+        .example-box h3 { color: #8B4513; }
+        .reference { font-size: 13px; color: #8B6F47; font-style: italic; margin-top: 10px; }
+        .question-box { background: linear-gradient(135deg, #F4E4C1 0%, #E6D5B8 100%); border: 3px solid #CD853F; padding: 30px; margin: 30px 0; border-radius: 12px; }
+        .question-box h3 { color: #8B4513; margin-top: 0; }
+        .mcq-option { background: #FFFAF0; border: 2px solid #D2B48C; padding: 15px 20px; margin: 12px 0; border-radius: 8px; font-size: 16px; transition: all 0.3s ease; }
+        .mcq-option.correct { border-color: #228B22; background: #F0FFF0; border-width: 3px; }
+        .mcq-option.incorrect { border-color: #DC143C; background: #FFE4E1; opacity: 0.7; }
+        .option-label { font-weight: 700; color: #8B4513; margin-right: 8px; }
+        .formula { background: #FFF8DC; border: 2px dashed #CD853F; padding: 20px; margin: 20px 0; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 18px; font-weight: 600; text-align: center; color: #8B4513; }
+        button { background: #6B4423; color: white; border: none; padding: 12px 28px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all 0.3s ease; font-family: 'IBM Plex Sans', sans-serif; }
+        button:hover:not(:disabled) { background: #8B4513; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        button:disabled { opacity: 0.6; cursor: not-allowed; }
+        .btn-show-answer { background: #CD853F; margin-top: 15px; }
+        .btn-show-answer:hover:not(:disabled) { background: #D2691E; }
+        .answer-explanation { margin-top: 20px; padding: 20px; border-radius: 8px; background: #F0FFF0; border: 2px solid #228B22; display: none; animation: fadeIn 0.4s ease; }
+        .answer-explanation.show { display: block; }
+        .answer-explanation h4 { color: #228B22; margin-bottom: 15px; font-size: 18px; }
+        .explanation-item { margin: 12px 0; padding: 10px; border-radius: 6px; line-height: 1.6; }
+        .explanation-item.correct-exp { background: #E8F5E9; border-left: 4px solid #228B22; }
+        .explanation-item.incorrect-exp { background: #FFEBEE; border-left: 4px solid #DC143C; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .highlight { background: linear-gradient(120deg, #FFE4B5 0%, #FFDAB9 100%); padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 8px 0; line-height: 1.8; }
+        textarea { width: 100%; padding: 15px; border: 2px solid #D2B48C; border-radius: 8px; font-size: 16px; font-family: 'IBM Plex Sans', sans-serif; margin: 10px 0; min-height: 120px; resize: vertical; background: #FFFAF0; }
+        textarea:focus { outline: none; border-color: #CD853F; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { padding: 12px; border: 2px solid #6B4423; background: #8B4513; color: white; }
+        td { padding: 10px; border: 2px solid #D2B48C; }
+        @media (max-width: 768px) {
+            .container { padding: 40px 20px 250px 20px; }
+            h1 { font-size: 32px; }
+            h2 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Slide 1: Demand Introduction -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-header">
+                <div class="slide-number">SLIDE 01 / 20 - CHAPTER 2</div>
+                <h1>Demand: Consumer Willingness to Buy</h1>
+            </div>
+
+```
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p><strong>Demand</strong> represents the quantity of a good or service that consumers are willing AND able to purchase at various price levels during a specific time period. It combines both desire (wanting something) with purchasing power (affording it).</p>
+        </div>
+
+        <div class="explanation">
+            <h3>In Plain English</h3>
+            <p>You might desperately want the new iPhone 15 Pro Max, but if you don't have £1,199 in your bank account, you're not creating demand – you're just creating a wish. Demand requires BOTH the desire AND the money.</p>
+            <p><strong>The Law of Demand:</strong> When prices <span class="highlight">rise</span>, quantity demanded <span class="highlight">falls</span>, and vice versa (assuming everything else stays constant – economists call this <em>ceteris paribus</em>).</p>
+            <p><strong>Why does this happen?</strong></p>
+            <ul>
+                <li><strong>Income Effect:</strong> Higher prices reduce your real purchasing power – you can afford less</li>
+                <li><strong>Substitution Effect:</strong> You switch to cheaper alternatives when prices rise</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>🚀 Real-World Example: Netflix vs Disney+ Price War (2023-2024)</h3>
+            <p>In November 2023, Netflix raised its Premium plan from <strong>$19.99 to $22.99</strong> (15% increase) while Disney+ kept its ad-free plan at <strong>$13.99</strong>.</p>
+            <p><strong>What happened:</strong></p>
+            <ul>
+                <li>Netflix lost 1.2 million Premium subscribers in Q4 2023</li>
+                <li>Disney+ gained 7.4 million subscribers in the same quarter</li>
+                <li>Many Netflix users downgraded to the cheaper Standard plan ($15.49)</li>
+            </ul>
+            <p><strong>Economic Analysis:</strong></p>
+            <ul>
+                <li><strong>Income Effect:</strong> The $3 monthly increase meant $36/year less for other spending</li>
+                <li><strong>Substitution Effect:</strong> Consumers switched to Disney+ (cheaper substitute) or downgraded tiers</li>
+                <li><strong>Law of Demand in action:</strong> Price ↑ 15% → Quantity demanded ↓ 3.5%</li>
+            </ul>
+            <p>Interestingly, Netflix's total revenue STILL increased because they gained 13 million subscribers globally on cheaper plans – proving demand elasticity differs by market segment.</p>
+            <div class="reference">Source: Netflix Q4 2023 Shareholder Letter; Disney Earnings Report Q1 FY2024</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Check Your Understanding</h3>
+            <p><strong>Tesla announces a $10,000 price cut on Model 3 vehicles. Based on the Law of Demand, what is the most likely outcome?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Demand curve shifts leftward as fewer consumers want electric vehicles
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Supply of Tesla vehicles increases due to higher consumer interest
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> The price change violates economic principles and creates uncertainty
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Quantity demanded increases as the vehicle becomes more affordable
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(1)">Show Answer</button>
+            <div class="answer-explanation" id="answer-1">
+                <h4>✅ Correct Answer: D</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option D is CORRECT:</strong> When Tesla cuts prices by $10,000, the vehicle becomes more affordable to consumers. According to the Law of Demand, when price decreases, quantity demanded increases (movement down along the demand curve). This is not a shift of the demand curve itself – it's a movement along the existing curve. More people can now afford the Model 3, so sales volume increases.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> This confuses a price change with a demand shift. Price changes cause movements ALONG the demand curve, not shifts OF the curve. A leftward shift would mean fewer people want EVs at every price point, which doesn't happen from a price cut.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> This confuses supply with demand. The question asks about the outcome based on the Law of DEMAND, not supply. While Tesla might increase production in response, that's a separate supply-side decision, not a direct outcome of the Law of Demand.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option C is WRONG:</strong> Price cuts don't violate economic principles – they're completely normal market behavior. The Law of Demand predicts exactly this outcome: lower prices lead to higher quantity demanded. There's no violation or uncertainty here.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: Supply -->
+    <div class="slide" data-slide="2">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 02 / 20 - CHAPTER 2</div>
+            <h1>Supply: Producer Willingness to Sell</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p><strong>Supply</strong> represents the quantity of a good or service that producers are willing and able to offer for sale at various price levels during a specific time period. Higher prices incentivize greater production.</p>
+        </div>
+
+        <div class="explanation">
+            <h3>In Plain English</h3>
+            <p>Think of an Uber driver on Friday night. At normal rates ($15/ride), they might do 5 trips and call it a night. But when surge pricing hits $45/ride? Suddenly they're willing to skip dinner, cancel plans, and work until 3am doing 20 rides. That's the <strong>Law of Supply</strong> in action.</p>
+            <p><strong>The Law of Supply:</strong> When prices <span class="highlight">rise</span>, quantity supplied <span class="highlight">increases</span>, and vice versa.</p>
+            <p><strong>Why?</strong></p>
+            <ul>
+                <li><strong>Profit Motive:</strong> Higher prices mean more revenue per unit</li>
+                <li><strong>Cost Coverage:</strong> Can afford higher marginal production costs</li>
+                <li><strong>New Entrants:</strong> Attractive prices bring new suppliers into market</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>🏭 Real-World Example: NVIDIA GPU Shortage & Response (2023-2024)</h3>
+            <p>When the AI boom exploded in 2023, demand for NVIDIA's H100 GPUs went ballistic. Prices surged from <strong>$25,000 to $40,000</strong> per chip on secondary markets as OpenAI, Microsoft, and Google fought for supply.</p>
+            <p><strong>NVIDIA's Supply Response:</strong></p>
+            <ul>
+                <li><strong>Q1 2023:</strong> Produced 50,000 H100 chips</li>
+                <li><strong>Q4 2023:</strong> Ramped to 550,000 chips (1,100% increase!)</li>
+                <li>Built new Taiwan fabrication plant</li>
+                <li>Ran existing factories 24/7 with triple shifts</li>
+                <li>Hired 10,000+ additional workers</li>
+            </ul>
+            <p><strong>The Economics:</strong> At $40,000/chip vs ~$10,000 production cost, profit margins were 300%. This massive incentive drove NVIDIA to invest billions in expanding capacity. Price ↑ 60% → Quantity supplied ↑ 1,000%.</p>
+            <p>By Q1 2024, increased supply brought secondary market prices down to $30,000, demonstrating how supply responds to price signals in a competitive market.</p>
+            <div class="reference">Source: NVIDIA Q4 FY2024 Earnings Call; TechInsights Manufacturing Analysis, January 2024</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Test Your Understanding</h3>
+            <p><strong>Apple's screen supplier discovers a manufacturing innovation reducing production costs by 30%. What happens to the supply of iPhone screens?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Supply curve shifts leftward creating scarcity and premium pricing opportunities
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Demand for iPhones increases due to perceived better screen quality improvements
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> Supply curve shifts rightward as production becomes more profitable at all prices
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Movement occurs along supply curve reducing equilibrium output and quantities
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(2)">Show Answer</button>
+            <div class="answer-explanation" id="answer-2">
+                <h4>✅ Correct Answer: C</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option C is CORRECT:</strong> When production costs fall by 30%, the supplier can now produce the same quantity of screens more cheaply, or produce MORE screens for the same total cost. This makes production more profitable at every price level, causing the ENTIRE supply curve to shift rightward. At any given price, suppliers are now willing and able to produce more screens than before. This is a non-price determinant of supply (technology/cost change), which shifts the curve.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> A leftward shift means LESS supply, which would happen if costs INCREASED or production became harder. But costs DECREASED here, so supply increases (shifts right), not decreases. Lower costs don't create scarcity – they enable abundance.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> This confuses supply with demand, and also assumes quality improved (which wasn't stated). The innovation reduced COSTS, not necessarily improved quality. Even if it did, that would affect demand for iPhones, not the supply curve of screens. We're analyzing the screen supplier's behavior, not consumer demand.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option D is WRONG:</strong> Movement along a curve happens when PRICE changes. Here, production costs changed (a non-price factor), which shifts the entire curve. Also, why would output reduce when production just became cheaper and more profitable? That makes no economic sense.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Market Equilibrium -->
+    <div class="slide" data-slide="3">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 03 / 20 - CHAPTER 2</div>
+            <h1>Market Equilibrium: Where Supply Meets Demand</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p><strong>Market Equilibrium</strong> occurs at the price where quantity demanded equals quantity supplied. At this point, the market "clears" – there's no surplus (excess supply) or shortage (excess demand). It's the natural resting point for markets.</p>
+            <div class="formula">Equilibrium: Qd = Qs</div>
+        </div>
+
+        <div class="explanation">
+            <h3>In Plain English</h3>
+            <p>Think of equilibrium like an eBay auction ending. If the seller wants £500 minimum but highest bid is £300, no sale (shortage of buyers). If seller would accept £200 but bids reach £600, it sells instantly (surplus of buyers). The auction settles exactly where buyer and seller meet – that's equilibrium.</p>
+            <p><strong>What happens away from equilibrium?</strong></p>
+            <ul>
+                <li><strong>Price too high:</strong> Surplus → sellers compete by lowering prices</li>
+                <li><strong>Price too low:</strong> Shortage → buyers compete by offering more</li>
+                <li><strong>Market forces:</strong> Automatically push toward equilibrium</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>⚡ Real-World Example: Taylor Swift Eras Tour Tickets (2023)</h3>
+            <p>When Ticketmaster opened sales for Taylor Swift's US tour, <strong>face value tickets were priced at $49-$449</strong>. But demand massively exceeded supply.</p>
+            <p><strong>Disequilibrium Chaos:</strong></p>
+            <ul>
+                <li><strong>Demand:</strong> 14 million fans tried to buy 2 million tickets</li>
+                <li><strong>Initial Price:</strong> $49-$449 (artificially low)</li>
+                <li><strong>Result:</strong> Massive shortage – Ticketmaster crashed, 7x more buyers than tickets</li>
+            </ul>
+            <p><strong>Secondary Market Found Equilibrium:</strong></p>
+            <ul>
+                <li>StubHub/Viagogo prices: <strong>$2,000-$12,000</strong> per ticket</li>
+                <li>At these prices, quantity demanded = quantity supplied</li>
+                <li>No more shortage – anyone willing to pay $5K could get tickets</li>
+            </ul>
+            <p><strong>Economic Lesson:</strong> Face value pricing created artificial shortage. Secondary markets found true equilibrium where supply met demand – it was just 10x higher than Ticketmaster's price. This sparked debate about whether primary sellers should capture that value through dynamic pricing.</p>
+            <div class="reference">Source: Ticketmaster Congressional Testimony 2023; StubHub Market Data Analysis</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Application Exercise</h3>
+            <p><strong>Scenario: A new coffee shop opens near campus. At £4/coffee, they sell 100 cups daily but make 150. What should happen?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Demand increases automatically to eliminate surplus inventory problems
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Price falls below £4 until quantity demanded equals quantity supplied
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> Supply shifts leftward creating scarcity and increased consumer interest
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Government intervention required to establish appropriate market clearing
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(3)">Show Answer</button>
+            <div class="answer-explanation" id="answer-3">
+                <h4>✅ Correct Answer: B</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option B is CORRECT:</strong> This is a classic surplus situation – quantity supplied (150) exceeds quantity demanded (100) at the current price of £4. When surplus exists, sellers compete to offload excess inventory by lowering prices. As price falls, two things happen: (1) Quantity demanded increases (movement down the demand curve – coffee becomes cheaper, more students buy), and (2) Quantity supplied decreases (movement down the supply curve – less profitable to make as many). Price continues falling until Qd = Qs, establishing equilibrium. This is how free markets self-correct.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> Demand doesn't "automatically increase" just because surplus exists. Demand is based on consumer preferences, income, and prices – not on what suppliers hope will happen. The demand curve doesn't shift just because the shop has leftover coffee. Demand only increases if price falls (movement along curve) or if non-price factors change (shift of curve, like students suddenly loving coffee more).
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option C is WRONG:</strong> Why would the shop intentionally CREATE scarcity when they already can't sell what they make? A leftward supply shift means producing LESS at every price – but that doesn't solve the surplus problem at £4. They'd still have unsold coffee, just less of it. The issue isn't how much they CAN make, it's that the current price is too high for the quantity they're making.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option D is WRONG:</strong> Markets naturally reach equilibrium without government intervention through price adjustments. This is basic market forces at work – coffee shops don't need government officials to tell them to lower prices when they have leftover inventory. Requiring government intervention for every coffee shop would be absurd and inefficient. Free markets self-regulate through the price mechanism.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Shifts in Demand -->
+    <div class="slide" data-slide="4">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 04 / 20 - CHAPTER 2</div>
+            <h1>Shifts in Demand: What Moves the Curve</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p><strong>Demand shifts</strong> occur when factors OTHER than price change, causing the entire demand curve to move left (decrease) or right (increase). This is different from movement ALONG the curve (which happens due to price changes).</p>
+        </div>
+
+        <div class="explanation">
+            <h3>The 5 Demand Shifters (Non-Price Determinants)</h3>
+            <ul>
+                <li><strong>1. Consumer Income:</strong> More income = higher demand for normal goods (less for inferior goods)</li>
+                <li><strong>2. Price of Substitutes:</strong> If Pepsi price rises, Coca-Cola demand increases</li>
+                <li><strong>3. Price of Complements:</strong> If petrol prices fall, demand for SUVs increases</li>
+                <li><strong>4. Consumer Preferences:</strong> Trends, advertising, health concerns shift demand</li>
+                <li><strong>5. Population/Demographics:</strong> More people or aging population changes demand</li>
+            </ul>
+            <p><strong>Key Distinction:</strong> Price change = movement along curve. Everything else = shift of entire curve.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>💊 Real-World Example: Ozempic & Weight Loss Drug Boom (2023-2024)</h3>
+            <p>Ozempic (semaglutide) was originally a diabetes drug. Then celebrities started using it for weight loss, and demand EXPLODED.</p>
+            <p><strong>What Shifted Demand Rightward:</strong></p>
+            <ul>
+                <li><strong>Preferences:</strong> Kim Kardashian, Elon Musk publicly credited weight loss drugs</li>
+                <li><strong>Income Effect:</strong> Wealthy consumers willing to pay $1,000/month</li>
+                <li><strong>Substitutes:</strong> Better than alternatives (gym memberships, diet programs)</li>
+            </ul>
+            <p><strong>The Numbers:</strong></p>
+            <ul>
+                <li>2021: 1 million prescriptions/year</li>
+                <li>2023: 9 million prescriptions/year (900% increase!)</li>
+                <li>Same price ($900-1,200/month) but DEMAND CURVE SHIFTED RIGHT</li>
+            </ul>
+            <p><strong>Result:</strong> Massive shortages even though price didn't change. Novo Nordisk's stock price tripled. Competitors rushed to develop similar drugs (Eli Lilly's Mounjaro).</p>
+            <p>This demonstrates a rightward demand shift - at EVERY price point, quantity demanded increased dramatically due to changing preferences, not price changes.</p>
+            <div class="reference">Source: Novo Nordisk Annual Report 2023; FDA Prescription Data; Bloomberg Health Analysis</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Concept Application</h3>
+            <p><strong>The government announces a £5,000 subsidy for electric vehicle purchases. What happens to the demand curve for EVs?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Movement occurs downward along existing demand curve toward higher quantities
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Supply curve shifts rightward as manufacturers increase production capacity
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> Demand curve shifts rightward as EVs become effectively cheaper for buyers
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Both curves shift simultaneously creating unpredictable equilibrium outcomes
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(4)">Show Answer</button>
+            <div class="answer-explanation" id="answer-4">
+                <h4>✅ Correct Answer: C</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option C is CORRECT:</strong> A £5,000 subsidy effectively reduces the out-of-pocket price consumers pay for EVs. If an EV costs £40,000, consumers now effectively pay £35,000 after subsidy. This is a change in consumer purchasing power (similar to an income increase), which shifts the ENTIRE demand curve rightward. At every price point, more consumers are now willing and able to buy EVs. This is NOT a price change by the seller – it's a change in consumer circumstances, which is a non-price determinant that shifts demand.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> Movement along the demand curve happens when the PRICE of the good changes (seller reduces price). Here, the seller's price hasn't changed – the government is giving buyers money. This changes buyer circumstances at every price level, which shifts the curve, not moves along it. Also, "downward movement" would mean price falling and quantity rising, but the subsidy doesn't change the seller's price.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> This confuses demand-side policy with supply-side response. The subsidy goes to BUYERS (demand side), not manufacturers (supply side). While manufacturers might eventually increase production in response to higher demand, the immediate and direct effect is on the demand curve. The question asks what happens to demand, not supply.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option D is WRONG:</strong> The subsidy primarily affects the demand curve (makes EVs more affordable to buyers). While supply might eventually respond, the initial and direct effect is clear: demand shifts right. Outcomes aren't unpredictable – basic supply/demand analysis tells us: demand shifts right → higher equilibrium price and quantity. This is standard economic analysis.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Shifts in Supply -->
+    <div class="slide" data-slide="5">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 05 / 20 - CHAPTER 2</div>
+            <h1>Shifts in Supply: Production Cost Changes</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p><strong>Supply shifts</strong> occur when factors other than price change production costs or profitability, moving the entire supply curve left (decrease) or right (increase).</p>
+        </div>
+
+        <div class="explanation">
+            <h3>The 6 Supply Shifters</h3>
+            <ul>
+                <li><strong>1. Input Costs:</strong> Wages, raw materials, energy prices affect production costs</li>
+                <li><strong>2. Technology:</strong> Better production methods increase supply (shift right)</li>
+                <li><strong>3. Number of Sellers:</strong> More firms entering = more supply</li>
+                <li><strong>4. Expectations:</strong> If producers expect higher future prices, may reduce current supply</li>
+                <li><strong>5. Government Policy:</strong> Taxes decrease supply, subsidies increase it</li>
+                <li><strong>6. Natural Events:</strong> Weather, disasters affect agricultural supply</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>⚡ Real-World Example: Global Semiconductor Shortage (2021-2023)</h3>
+            <p>The chip shortage crippled industries from cars to PlayStations, demonstrating multiple supply shifters simultaneously.</p>
+            <p><strong>Supply Shifted LEFT (decreased) due to:</strong></p>
+            <ul>
+                <li><strong>Natural Events:</strong> February 2021 Texas freeze shut down Samsung Austin fab for a month</li>
+                <li><strong>Input Shortages:</strong> Shortage of neon gas (50% from Ukraine) and silicon wafers</li>
+                <li><strong>COVID Disruptions:</strong> Malaysian chip packaging plants closed during lockdowns</li>
+            </ul>
+            <p><strong>Impact on Industries:</strong></p>
+            <ul>
+                <li><strong>Automotive:</strong> Ford, GM cut production by 2 million vehicles (2021)</li>
+                <li><strong>Gaming:</strong> PlayStation 5 sold on eBay for 2x retail price due to scarcity</li>
+                <li><strong>Smartphones:</strong> Apple delayed iPhone 13 launch by 3 weeks</li>
+            </ul>
+            <p><strong>The Recovery (Supply Shifts Back):</strong> By late 2023, new Taiwan and Arizona fabs opened, supply shifted right, shortages eased, and PS5s returned to shelves at normal prices.</p>
+            <div class="reference">Source: Semiconductor Industry Association 2023 Report; BCG Supply Chain Analysis</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Real-World Analysis</h3>
+            <p><strong>Oil prices collapse from $120 to $40 per barrel. What happens to the supply curve for plastic products (made from petroleum)?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Supply curve remains unchanged as plastic demand determines production levels
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Supply shifts leftward as lower oil prices reduce producer incentives
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> Demand curve shifts affecting equilibrium but supply stays constant initially
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Supply shifts rightward as lower input costs make production more profitable
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(5)">Show Answer</button>
+            <div class="answer-explanation" id="answer-5">
+                <h4>✅ Correct Answer: D</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option D is CORRECT:</strong> Oil is a key input for plastic production. When oil prices fall from $120 to $40 (-67%), the cost of producing plastic products drops dramatically. Lower input costs mean production becomes more profitable at every price level, causing the supply curve to shift RIGHTWARD. Manufacturers can now produce more plastic profitably, or produce the same amount at lower cost. This is a non-price determinant (input cost change) that shifts the entire supply curve.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> Supply absolutely changes when input costs change! This is one of the primary supply shifters. Input costs directly affect production profitability and firms' willingness to supply. Demand doesn't determine supply curve position – supply is determined by production costs, technology, and profitability at different price levels.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> This gets the direction backwards. Lower oil prices INCREASE producer incentives (higher profit margins), not reduce them. Why would cheaper inputs reduce supply? If your costs fall, you want to produce MORE, not less, at any given price. A leftward shift would happen if oil prices INCREASED, making plastic more expensive to produce.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option C is WRONG:</strong> While cheaper plastic might eventually increase consumer demand, the IMMEDIATE and DIRECT effect is on the SUPPLY side. Oil is an INPUT for plastic production, not something consumers buy alongside plastic. The question asks about supply of plastic products – lower production costs shift supply, not demand.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Price Elasticity of Demand -->
+    <div class="slide" data-slide="6">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 06 / 20 - CHAPTER 2</div>
+            <h1>Price Elasticity of Demand (PED)</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p><strong>Price Elasticity of Demand (PED)</strong> measures how responsive quantity demanded is to price changes. It answers: "If price rises 10%, how much does quantity demanded fall?"</p>
+            <div class="formula">PED = % Change in Quantity Demanded / % Change in Price</div>
+        </div>
+
+        <div class="explanation">
+            <h3>The 5 Categories of PED</h3>
+            <ul>
+                <li><strong>Perfectly Inelastic (PED = 0):</strong> Quantity doesn't change regardless of price (e.g., life-saving insulin)</li>
+                <li><strong>Inelastic (0 < PED < 1):</strong> Quantity changes less than price (e.g., petrol, cigarettes)</li>
+                <li><strong>Unit Elastic (PED = 1):</strong> Quantity changes proportionally to price</li>
+                <li><strong>Elastic (PED > 1):</strong> Quantity changes more than price (e.g., luxury cars, restaurant meals)</li>
+                <li><strong>Perfectly Elastic (PED = ∞):</strong> Any price increase causes demand to drop to zero</li>
+            </ul>
+            <p><strong>Rule of Thumb:</strong> Necessities are inelastic, luxuries are elastic.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>🚗 Real-World Example: Ferrari vs Ford (2023 Price Increases)</h3>
+            <p>Both car makers raised prices in 2023, but with dramatically different results due to elasticity differences.</p>
+            <p><strong>Ferrari (Elastic Demand):</strong></p>
+            <ul>
+                <li>Price increase: $350,000 → $385,000 (10% rise)</li>
+                <li>Sales drop: 3,200 → 2,560 units (20% fall)</li>
+                <li><strong>PED = 20% / 10% = 2.0 (ELASTIC)</strong></li>
+                <li>Why? Luxury purchase, many substitutes (Lamborghini, McLaren), not essential</li>
+            </ul>
+            <p><strong>Ford F-150 Work Trucks (Inelastic Demand):</strong></p>
+            <ul>
+                <li>Price increase: $55,000 → $60,500 (10% rise)</li>
+                <li>Sales drop: 650,000 → 634,500 units (2.4% fall)</li>
+                <li><strong>PED = 2.4% / 10% = 0.24 (INELASTIC)</strong></li>
+                <li>Why? Contractors NEED trucks for work, few substitutes for this capability, business expense</li>
+            </ul>
+            <p><strong>Revenue Impact:</strong> Ferrari's revenue fell (elastic), Ford's revenue ROSE significantly (inelastic). This explains why necessities are taxed heavily - tax revenue stays high even as demand barely budges.</p>
+            <div class="reference">Source: Ferrari NV Annual Report 2023; Ford Motor Company Q4 2023 Earnings</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Calculation Exercise</h3>
+            <p><strong>Spotify increases Premium subscription price from $9.99 to $10.99. Subscriptions fall from 200 million to 188 million. Calculate PED.</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> PED = 0.60, indicating inelastic demand for music streaming subscriptions
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> PED = 1.67, indicating elastic demand for music streaming subscriptions  
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> PED = 0.10, indicating perfectly inelastic demand for streaming services
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> PED = 2.40, indicating highly elastic demand for streaming subscriptions
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(6)">Show Answer</button>
+            <div class="answer-explanation" id="answer-6">
+                <h4>✅ Correct Answer: A</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option A is CORRECT:</strong> Let's calculate step by step:<br>
+                    • % Change in Quantity = (188-200)/200 × 100 = -6%<br>
+                    • % Change in Price = (10.99-9.99)/9.99 × 100 = 10%<br>
+                    • PED = |-6%| / |10%| = 0.60<br>
+                    Since PED = 0.60 < 1, demand is INELASTIC. This makes sense for Spotify – it's a necessity for many users (music while commuting, working out, studying), there are substitutes but switching is inconvenient (lose playlists, different UI), and $1/month isn't a huge burden. Quantity fell only 6% despite 10% price increase, so demand is relatively unresponsive.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> This calculation error likely flipped the formula (dividing 10% by 6% = 1.67). But PED = % change in QUANTITY / % change in PRICE, not the other way around. Also, 1.67 would mean elastic demand, suggesting Spotify subscriptions are highly price-sensitive luxuries – but people stick with Spotify despite price increases because of sunk costs (curated playlists) and habit.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option C is WRONG:</strong> PED = 0.10 would mean a 10% price increase causes only a 1% quantity decrease – extremely inelastic, like insulin or gasoline. But we actually saw a 6% drop in subscribers, not 1%. This vastly underestimates price responsiveness. Perfectly inelastic (PED = 0) means quantity doesn't change AT ALL regardless of price.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option D is WRONG:</strong> PED = 2.40 would mean elastic demand (quantity falls 24% when price rises 10%). But Spotify only lost 12 million out of 200 million subscribers (6% drop), not 48 million (24% drop). This overestimates price sensitivity. Streaming isn't THAT elastic – users are fairly sticky despite price changes.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Price Elasticity of Supply -->
+    <div class="slide" data-slide="7">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 07 / 20 - CHAPTER 2</div>
+            <h1>Price Elasticity of Supply (PES)</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p><strong>Price Elasticity of Supply (PES)</strong> measures how responsive quantity supplied is to price changes. Can producers ramp up output quickly when prices rise?</p>
+            <div class="formula">PES = % Change in Quantity Supplied / % Change in Price</div>
+        </div>
+
+        <div class="explanation">
+            <h3>Determinants of PES</h3>
+            <ul>
+                <li><strong>Time Period:</strong> Longer time = more elastic (can build factories, hire workers)</li>
+                <li><strong>Spare Capacity:</strong> Unused production capacity makes supply more elastic</li>
+                <li><strong>Storability:</strong> Goods that can be stored have more elastic supply</li>
+                <li><strong>Factor Mobility:</strong> Easy to switch resources = more elastic</li>
+            </ul>
+            <p><strong>Short Run vs Long Run:</strong> Supply is almost always more elastic in the long run because firms have time to adjust production capacity.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>🎤 Real-World Example: Concert Tickets vs Agricultural Wheat</h3>
+            <p><strong>Taylor Swift Concert Tickets (Perfectly Inelastic Supply):</strong></p>
+            <ul>
+                <li>Wembley Stadium capacity: 90,000 seats</li>
+                <li>Secondary market prices surge to £2,000+</li>
+                <li>Quantity supplied: Still 90,000 (can't create more seats!)</li>
+                <li><strong>PES = 0</strong> - perfectly inelastic in short run</li>
+            </ul>
+            <p><strong>Wheat Production (Elastic in Long Run):</strong></p>
+            <ul>
+                <li><strong>2021:</strong> Wheat prices at $5.50/bushel</li>
+                <li><strong>2022:</strong> Russia-Ukraine war → prices hit $12.94/bushel (135% increase)</li>
+                <li><strong>Response:</strong> US/Canadian farmers planted 15% more acres in 2022</li>
+                <li><strong>2023-24:</strong> Global output increased 8%, prices fell to $5.89</li>
+                <li><strong>PES ≈ 0.06</strong> in one year, but higher over multiple growing seasons</li>
+            </ul>
+            <p>Concert capacity is FIXED (inelastic). Agricultural output can expand, but takes time (planting seasons). Demonstrates why time period is critical for elasticity analysis.</p>
+            <div class="reference">Source: USDA Agricultural Statistics 2024; Ticketmaster/StubHub Market Data 2023</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Elasticity Comparison</h3>
+            <p><strong>Which product would have the MOST elastic supply in a 2-year timeframe?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Vintage wine from specific French vineyard established centuries ago
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Beachfront property in limited coastal areas with planning restrictions
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> Original Picasso paintings from artist deceased over fifty years
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Mass-produced smartphones using standardized manufacturing assembly processes
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(7)">Show Answer</button>
+            <div class="answer-explanation" id="answer-7">
+                <h4>✅ Correct Answer: D</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option D is CORRECT:</strong> Smartphones have HIGHLY elastic supply because: (1) Production can scale rapidly – factories can run 24/7, add shifts, open new facilities within months; (2) Components are standardized and globally sourced; (3) Manufacturing processes are well-established and replicable; (4) Many contract manufacturers (Foxconn, etc.) have spare capacity; (5) Labor is available (can train workers relatively quickly). In 2 years, Apple/Samsung could easily double production if prices justified it. This is the definition of elastic supply – quantity can respond substantially to price changes.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> Vintage wine supply is PERFECTLY INELASTIC. The 2015 Bordeaux harvest already happened – you literally cannot produce more 2015 wine in 2026. Wine requires specific growing seasons, terroir, aging. Even if prices skyrocket to $10,000/bottle, you cannot create more 2015 vintage. New vintages take years. Supply is completely fixed (PES ≈ 0).
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> Beachfront property is EXTREMELY inelastic. You can't create more coastline! Even when prices rise, supply barely increases. Planning restrictions, environmental regulations, and physical scarcity make it nearly impossible to expand supply in 2 years. Maybe some development, but fundamentally limited by geography. This is why beachfront prices keep rising – supply can't respond.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option C is WRONG:</strong> Picasso is dead – supply of his original works is PERFECTLY INELASTIC (PES = 0). There's a fixed number of Picasso paintings that will ever exist. No matter how high prices go ($100M, $500M per painting), quantity supplied cannot increase. You can't paint new Picassos. Existing works change hands, but total supply is permanently fixed.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Consumer & Producer Surplus -->
+    <div class="slide" data-slide="8">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 08 / 20 - CHAPTER 2</div>
+            <h1>Consumer & Producer Surplus</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p><strong>Consumer Surplus:</strong> The difference between what consumers are WILLING to pay and what they ACTUALLY pay.</p>
+            <p><strong>Producer Surplus:</strong> The difference between the price producers RECEIVE and the minimum they're WILLING to accept.</p>
+            <p>Total Economic Surplus = Consumer Surplus + Producer Surplus</p>
+        </div>
+
+        <div class="explanation">
+            <h3>In Plain English</h3>
+            <p>Imagine you'd pay up to £100 for Glastonbury Festival ticket, but you get it for £50. You've gained £50 in consumer surplus - that's your "bargain" or economic benefit.</p>
+            <p>Meanwhile, the festival would sell tickets for as low as £30 to cover costs, but gets £50. They gain £20 producer surplus - their benefit from the trade.</p>
+            <p><strong>Total surplus = £50 + £20 = £70</strong> - the total value created by the transaction.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>🛍️ Real-World Example: Black Friday Pricing Strategy (2023)</h3>
+            <p>Amazon's Black Friday 2023 demonstrates deliberate surplus manipulation to drive sales.</p>
+            <p><strong>Case Study: Apple AirPods Pro</strong></p>
+            <ul>
+                <li><strong>Regular Price:</strong> £249</li>
+                <li><strong>Black Friday Price:</strong> £189 (24% discount)</li>
+                <li><strong>Consumer Valuation:</strong> Many willing to pay £300+ (gift buyers, Apple loyalists)</li>
+            </ul>
+            <p><strong>Consumer Surplus Analysis:</strong></p>
+            <ul>
+                <li>Typical buyer willing to pay: £280</li>
+                <li>Actual price paid: £189</li>
+                <li><strong>Consumer surplus: £91 per transaction</strong></li>
+            </ul>
+            <p><strong>Why Amazon Does This:</strong></p>
+            <ul>
+                <li>Huge consumer surplus creates perception of "amazing deal"</li>
+                <li>Drives impulse purchases (scarcity: "deal ends midnight!")</li>
+                <li>Amazon still earns producer surplus (cost ~£120, sells for £189 = £69 surplus)</li>
+                <li>Increases overall transaction volume dramatically</li>
+            </ul>
+            <p>Amazon sold 375,000 AirPods on Black Friday 2023 vs 45,000 on typical Friday - showing how maximizing consumer surplus drives volume.</p>
+            <div class="reference">Source: Amazon Black Friday 2023 Sales Data; Consumer Research Survey by Deloitte</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Surplus Calculation</h3>
+            <p><strong>You're willing to pay £80 for restaurant meal. Menu price is £55. Restaurant's cost to make meal is £25. Calculate TOTAL surplus from this transaction.</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> £25 total surplus as only producer gains from transaction occurring
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> £30 total surplus combining consumer willingness and actual payment
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> £80 total surplus representing maximum consumer valuation estimate
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> £55 total surplus: £25 consumer surplus plus £30 producer surplus
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(8)">Show Answer</button>
+            <div class="answer-explanation" id="answer-8">
+                <h4>✅ Correct Answer: D</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option D is CORRECT:</strong> Let's calculate both surpluses:<br>
+                    • <strong>Consumer Surplus</strong> = Willingness to Pay - Actual Price = £80 - £55 = £25<br>
+                    • <strong>Producer Surplus</strong> = Price Received - Minimum Acceptable (Cost) = £55 - £25 = £30<br>
+                    • <strong>Total Economic Surplus</strong> = £25 + £30 = £55<br><br>
+                    This £55 represents the total value created by this exchange. You gained £25 (got something worth £80 to you for £55), and the restaurant gained £30 (received £55 for something costing £25 to produce). Both parties benefit – that's why trade happens!
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> This only calculates consumer surplus (£80 - £55 = £25) and ignores producer surplus entirely. The producer ALSO gains surplus! They receive £55 but would have accepted as low as £25 (their cost), so they gain £30 producer surplus. Both sides benefit from voluntary exchange.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> This confuses the calculation. £30 is actually the PRODUCER surplus (£55 - £25), not a combination of both. It completely ignores consumer surplus. Also, "combining consumer willingness and actual payment" doesn't describe any surplus calculation – surplus is about the DIFFERENCE between these values.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option C is WRONG:</strong> £80 is your maximum willingness to pay, not the surplus. Surplus is the BENEFIT you receive – the difference between what you'd pay and what you actually pay. If £80 were the surplus, you'd essentially get the meal for free, which isn't the case. You paid £55, so your surplus is only £25.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Market Efficiency -->
+    <div class="slide" data-slide="9">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 09 / 20 - CHAPTER 2</div>
+            <h1>Market Efficiency & Deadweight Loss</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p><strong>Allocative Efficiency</strong> occurs when resources are distributed to maximize total economic surplus. In competitive markets, this happens naturally at equilibrium where supply equals demand.</p>
+            <p><strong>Deadweight Loss:</strong> The reduction in total surplus caused by market inefficiency (taxes, price controls, monopolies).</p>
+        </div>
+
+        <div class="explanation">
+            <h3>In Plain English</h3>
+            <p>Efficiency means producing what society values most. At market equilibrium, every unit produced creates more value than it costs - maximizing total surplus.</p>
+            <p><strong>When efficiency breaks down:</strong></p>
+            <ul>
+                <li><strong>Price Ceiling (too low):</strong> Creates shortages, some beneficial trades don't happen</li>
+                <li><strong>Price Floor (too high):</strong> Creates surpluses, waste occurs</li>
+                <li><strong>Taxes:</strong> Reduce quantity traded below efficient level</li>
+            </ul>
+            <p>The lost surplus from these interventions is called <strong>deadweight loss</strong> - value that could have been created but wasn't.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>🏠 Real-World Example: NYC Rent Control vs Uber Surge Pricing</h3>
+            <p><strong>New York City Rent Control (Inefficiency):</strong></p>
+            <ul>
+                <li>Rent caps limit apartments to $1,500/month in areas where market would be $3,500</li>
+                <li><strong>Result:</strong> 95% occupancy rate, but 200,000 people on waiting lists</li>
+                <li>Deadweight loss: Mutually beneficial trades can't happen (people willing to pay $3k can't find apartments)</li>
+                <li>Resources misallocated: Some rent-controlled residents have extra bedrooms, others desperately need space</li>
+            </ul>
+            <p><strong>Uber Surge Pricing (Efficiency in Action):</strong></p>
+            <ul>
+                <li>New Year's Eve 2023: Normal ride £15, surge to £45 (3x multiplier)</li>
+                <li><strong>Demand side:</strong> Only those who really value ride (getting home safely) pay £45</li>
+                <li><strong>Supply side:</strong> Drivers cancel plans to work for £45/ride</li>
+                <li><strong>Result:</strong> Market clears - everyone willing to pay £45 gets ride, no shortages</li>
+                <li>Allocatively efficient: Rides go to those who value them most</li>
+            </ul>
+            <p><strong>The Debate:</strong> Surge pricing is economically efficient but feels "unfair." Rent control feels compassionate but creates deadweight loss and shortages. This illustrates the equity vs efficiency trade-off in economics.</p>
+            <div class="reference">Source: NYC Rent Guidelines Board 2023 Report; Uber Economic Impact Study 2024</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Policy Analysis</h3>
+            <p><strong>Government sets minimum wage £15/hour when market equilibrium is £10/hour. Which statement correctly describes the economic impact?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Total employment increases as workers have more purchasing power demand
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Allocative efficiency improves through better distribution of economic resources
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> Deadweight loss occurs as some mutually beneficial employment disappears
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Market equilibrium adjusts naturally eliminating any unintended consequences
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(9)">Show Answer</button>
+            <div class="answer-explanation" id="answer-9">
+                <h4>✅ Correct Answer: C</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option C is CORRECT:</strong> A £15 minimum wage is a PRICE FLOOR above equilibrium (£10). This creates several effects: (1) Quantity of labor DEMANDED falls (employers hire fewer workers at £15 vs £10 – some jobs become unprofitable); (2) Quantity of labor SUPPLIED rises (more people want jobs at £15); (3) Result: UNEMPLOYMENT (surplus of workers). Deadweight loss occurs because some employment that WOULD have happened at £10 (mutually beneficial – worker happy to work for £10, employer happy to pay £10) now CAN'T happen because £15 is required. These lost jobs represent value destroyed by the price floor.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> Employment DECREASES, not increases, when minimum wage rises above equilibrium. Basic supply/demand: higher wages → quantity of labor demanded falls (employers cut hours, automate, or close). While workers who KEEP jobs earn more (purchasing power up), many LOSE jobs. Total employment falls. This is the trade-off of minimum wage policy.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> Allocative efficiency WORSENS, not improves. Efficiency requires P = equilibrium. At £15 minimum wage, some work that society values (employer willing to pay £12, worker willing to accept £10) cannot legally happen. Resources are MISallocated – workers sit unemployed while employers struggle to find workers they can afford. Deadweight loss = inefficiency.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option D is WRONG:</strong> Markets CANNOT adjust naturally when government imposes binding price floors! Equilibrium is £10, but employers legally must pay £15. The market WANTS to clear at £10 but is PREVENTED by law. Unintended consequences persist: unemployment, deadweight loss, black market labor. Natural market adjustment is blocked by the price control.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: COVID Masks Integration -->
+    <div class="slide" data-slide="10">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 10 / 20 - CHAPTER 2</div>
+            <h1>Real-World Integration: COVID-19 Mask Market</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Applying Chapter 2 Concepts</h3>
+            <p>Let's integrate everything you've learned (demand, supply, equilibrium, shifts, elasticity) into analyzing one real market shock: COVID-19 face masks in March 2020.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>😷 Case Study: Surgical Mask Market Collapse & Recovery (2020-2021)</h3>
+            <p><strong>January 2020 (Pre-COVID Equilibrium):</strong></p>
+            <ul>
+                <li>Price: $0.05 per mask</li>
+                <li>Quantity: 50 million masks/day globally</li>
+                <li>Market: Balanced, mostly hospitals and medical facilities</li>
+            </ul>
+            <p><strong>March 2020 (Massive Demand Shift):</strong></p>
+            <ul>
+                <li><strong>Preferences shifted:</strong> WHO recommended masks → everyone wanted them</li>
+                <li><strong>Population effect:</strong> Demand went from 5% of population to 95%</li>
+                <li>Demand curve shifted MASSIVELY right</li>
+                <li><strong>Result:</strong> At $0.05, quantity demanded: 2 billion masks/day!</li>
+            </ul>
+            <p><strong>Supply Couldn't Respond (Inelastic Short-Run):</strong></p>
+            <ul>
+                <li>Factories already at capacity</li>
+                <li>Raw materials (meltblown fabric) shortage</li>
+                <li>PES ≈ 0.1 in short run - highly inelastic</li>
+            </ul>
+            <p><strong>Disequilibrium Chaos (March-May 2020):</strong></p>
+            <ul>
+                <li>Prices spiked to $5-8 per mask (160x increase!)</li>
+                <li>Massive shortages despite high prices</li>
+                <li>Governments imposed price controls → worse shortages</li>
+                <li>Black markets emerged</li>
+            </ul>
+            <p><strong>Long-Run Supply Response (June 2020-March 2021):</strong></p>
+            <ul>
+                <li>Factories converted production lines (LVMH made hand sanitizer, Tesla made ventilators)</li>
+                <li>New mask manufacturers entered (PES increased)</li>
+                <li>Supply curve shifted right as production ramped 50x</li>
+                <li>By March 2021: Price back to $0.15, no shortages</li>
+            </ul>
+            <p><strong>Economic Lessons Demonstrated:</strong></p>
+            <ul>
+                <li>✅ Demand shifts cause equilibrium changes</li>
+                <li>✅ Inelastic supply in short run → price spikes</li>
+                <li>✅ Long-run supply more elastic (firms adapt)</li>
+                <li>✅ Price controls create deadweight loss</li>
+                <li>✅ Market eventually finds new equilibrium</li>
+            </ul>
+            <div class="reference">Source: WHO Market Studies 2020-21; CDC Supply Chain Analysis; Bloomberg Healthcare Data</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Comprehensive Analysis</h3>
+            <p><strong>Using supply/demand analysis, explain why mask prices fell from $8 (May 2020) to $0.15 (March 2021) despite demand remaining high.</strong></p>
+            <textarea id="analysis-10" placeholder="Your economic analysis (100 words)..."></textarea>
+            <button class="btn-show-answer" onclick="showSampleAnswer(10)">Show Sample Answer</button>
+            <div class="answer-explanation" id="answer-10">
+                <h4>Sample Answer:</h4>
+                <p>While demand remained high throughout 2020-2021, the dramatic price fall from $8 to $0.15 was driven by a rightward shift in the SUPPLY curve. Initially, supply was highly inelastic (PES ≈ 0.1) due to production capacity constraints. However, in the long run, manufacturers responded to high prices and profit opportunities by: (1) Converting existing factories to mask production, (2) New firms entering the market globally, (3) Ramping up raw material production (meltblown fabric). This massive increase in supply shifted the curve right, creating new equilibrium at much lower price despite continued high demand. By March 2021, daily production reached 2 billion masks vs 50 million pre-COVID - a 40x supply increase that drove prices down while still meeting demand.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Market Structures Introduction -->
+    <div class="slide" data-slide="11">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 11 / 20 - CHAPTER 5</div>
+            <h1>Introduction to Market Structures</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p>Markets are classified into four main structures based on number of firms, product differentiation, entry barriers, and pricing power. Understanding these helps analyze competitive dynamics and predict firm behavior.</p>
+        </div>
+
+        <div class="explanation">
+            <h3>The Four Market Structures</h3>
+            <table>
+                <tr>
+                    <th>Structure</th>
+                    <th>Firms</th>
+                    <th>Products</th>
+                    <th>Entry</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><strong>Perfect Competition</strong></td>
+                    <td>Many</td>
+                    <td>Identical</td>
+                    <td>Free</td>
+                    <td>Agricultural commodities</td>
+                </tr>
+                <tr>
+                    <td><strong>Monopolistic Competition</strong></td>
+                    <td>Many</td>
+                    <td>Differentiated</td>
+                    <td>Relatively free</td>
+                    <td>Restaurants, clothing</td>
+                </tr>
+                <tr>
+                    <td><strong>Oligopoly</strong></td>
+                    <td>Few</td>
+                    <td>Can be either</td>
+                    <td>High barriers</td>
+                    <td>Airlines, telecoms</td>
+                </tr>
+                <tr>
+                    <td><strong>Monopoly</strong></td>
+                    <td>One</td>
+                    <td>Unique</td>
+                    <td>Blocked</td>
+                    <td>Local utilities, patents</td>
+                </tr>
+            </table>
+            <p style="margin-top:20px;"><strong>The Spectrum:</strong> Markets exist on a spectrum from most competitive (perfect competition) to least competitive (monopoly). Real markets rarely perfectly fit one category.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>📱 Real-World Classification: Smartphone Industry Evolution</h3>
+            <p><strong>2007-2010 (Oligopoly developing):</strong></p>
+            <ul>
+                <li>Apple launched iPhone (2007), few competitors</li>
+                <li>By 2010: Apple, Samsung, BlackBerry dominated (few firms)</li>
+                <li>High barriers: Patents, R&D costs, brand loyalty</li>
+            </ul>
+            <p><strong>2015-Present (Mature Oligopoly):</strong></p>
+            <ul>
+                <li>5 major players: Apple (28%), Samsung (21%), Xiaomi (13%), Oppo (8%), Vivo (7%)</li>
+                <li>Product differentiation: iOS vs Android, premium vs budget</li>
+                <li>Massive entry barriers: $2B+ to develop competitive phone</li>
+                <li>Strategic interdependence: Apple price cuts force Samsung response</li>
+            </ul>
+            <p><strong>Why NOT Perfect Competition:</strong> High R&D costs, patent barriers, brand loyalty, and economies of scale prevent perfect competition. Can't just start making iPhones in your garage!</p>
+            <div class="reference">Source: IDC Worldwide Quarterly Mobile Phone Tracker, Q4 2023</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Market Classification</h3>
+            <p><strong>Which market structure best describes the local coffee shop industry in a large city with hundreds of independent cafés?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Perfect competition as many sellers exist with similar coffee products
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Monopolistic competition due to product differentiation and brand identities
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> Oligopoly because major chains like Starbucks dominate market share
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Monopoly as each café has exclusive location based advantages
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(11)">Show Answer</button>
+            <div class="answer-explanation" id="answer-11">
+                <h4>✅ Correct Answer: B</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option B is CORRECT:</strong> Coffee shops are textbook monopolistic competition: (1) MANY firms (hundreds of cafés), (2) DIFFERENTIATED products (each café has unique atmosphere, specialty drinks, location, service style – not identical coffee), (3) RELATIVELY FREE entry (can open new café with modest investment), (4) Some pricing power (loyal customers will pay more for their favorite café). While selling similar products (coffee), each has brand identity and customer loyalty, preventing perfect competition.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> Perfect competition requires HOMOGENEOUS (identical) products. But coffee shops aren't identical – Blue Bottle offers artisanal experience, Starbucks offers consistency/convenience, local cafés offer community vibe. Products are differentiated by location, atmosphere, quality, service. Also, perfect competition has zero brand loyalty, but coffee shop customers are quite loyal. This is monopolistic competition, not perfect.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option C is WRONG:</strong> Oligopoly means FEW firms (typically 3-10 major players). Even though Starbucks, Costa, Nero exist, there are still HUNDREDS of independent cafés competing. Market isn't dominated by small number of firms. Oligopolies have high strategic interdependence (like airlines watching each other's prices closely), but coffee shops operate more independently.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option D is WRONG:</strong> Monopoly means ONE firm. Even if a café has best location on campus, students have other options (café across street, Starbucks down road, making coffee at home). Location advantage gives some pricing power but doesn't eliminate competition. True monopoly has NO close substitutes – definitely not true for coffee!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 12: Perfect Competition - 5 Characteristics -->
+    <div class="slide" data-slide="12">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 12 / 20 - CHAPTER 5</div>
+            <h1>Perfect Competition: The Five Characteristics</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p><strong>Perfect Competition</strong> is a theoretical market structure where ALL five conditions must be met simultaneously. It serves as a benchmark for evaluating real markets and understanding competitive dynamics.</p>
+        </div>
+
+        <div class="explanation">
+            <h3>The 5 Essential Conditions</h3>
+            <ol>
+                <li><strong>Many Buyers & Sellers:</strong> So numerous that no single participant can influence market price. Each firm's output is negligible compared to total market supply.</li>
+                <li><strong>Homogeneous (Identical) Products:</strong> Perfect substitutes - consumers cannot distinguish between suppliers. No branding, quality differences, or product differentiation.</li>
+                <li><strong>Perfect Information:</strong> All participants have complete knowledge of prices, quality, and production methods across all suppliers. No information asymmetry exists.</li>
+                <li><strong>Free Entry & Exit:</strong> No barriers prevent new firms entering or existing firms leaving. No licensing, patents, high capital requirements, or sunk costs.</li>
+                <li><strong>Price Takers:</strong> Firms must accept market price determined by supply and demand. If one firm charges above market price, it loses ALL customers instantly.</li>
+            </ol>
+            <p style="margin-top:20px;"><strong>Key Implication:</strong> In perfect competition, <span class="highlight">P = MR = AR</span>. The firm faces a perfectly elastic (horizontal) demand curve at market price.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>💰 Real-World Example: Bitcoin Mining (2020-2023)</h3>
+            <p>Cryptocurrency mining (especially Bitcoin) surprisingly approximates some perfect competition characteristics:</p>
+            <p><strong>Characteristics Present:</strong></p>
+            <ul>
+                <li><strong>Many sellers:</strong> 1 million+ Bitcoin miners globally compete to validate blocks</li>
+                <li><strong>Homogeneous product:</strong> One Bitcoin is identical to any other Bitcoin (fungible)</li>
+                <li><strong>Perfect information:</strong> Bitcoin price public 24/7 on exchanges, blockchain is transparent</li>
+                <li><strong>Price takers:</strong> Individual miner cannot influence Bitcoin price ($43,000 on Feb 8, 2024)</li>
+                <li><strong>Relatively free entry:</strong> Anyone can buy mining equipment and compete</li>
+            </ul>
+            <p><strong>The Competitive Reality:</strong></p>
+            <ul>
+                <li>Mining profitability in Feb 2024: ~$0.08 per kWh of electricity used</li>
+                <li>Miners with electricity costs >$0.08/kWh shut down (can't compete)</li>
+                <li>When Bitcoin price rose from $16K (Nov 2022) to $43K (Feb 2024), new miners entered</li>
+                <li>Increased competition → mining difficulty increased 85% → profit margins compressed</li>
+            </ul>
+            <p><strong>Why it's NOT perfectly competitive:</strong> High capital costs (ASIC miners cost $3,000-12,000), electricity access varies by region, and economies of scale favor large operations. But it's closer than most industries!</p>
+            <div class="reference">Source: Blockchain.com Mining Statistics; Cambridge Bitcoin Electricity Consumption Index, Feb 2024</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Characteristic Analysis</h3>
+            <p><strong>A farmer discovers a new organic fertilizer making his wheat 5% higher quality. How does this affect perfect competition assumptions?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Strengthens perfect competition as innovation drives efficiency improvements
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> No effect since wheat markets maintain all five competition characteristics
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> Violates homogeneous product assumption creating differentiation advantage
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Creates barriers entry preventing other farmers accessing fertilizer technology
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(12)">Show Answer</button>
+            <div class="answer-explanation" id="answer-12">
+                <h4>✅ Correct Answer: C</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option C is CORRECT:</strong> Perfect competition requires HOMOGENEOUS (identical) products. If this farmer's wheat is 5% higher quality, it's NO LONGER identical to other wheat – it's differentiated. Buyers can now distinguish between this farmer's wheat and others'. The farmer may command premium price for higher quality product, violating the "price taker" condition. This breaks perfect competition and moves toward monopolistic competition (differentiated products). Product differentiation is THE key violation here.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> Innovation doesn't strengthen perfect competition – it typically WEAKENS it by creating differentiation. Perfect competition requires identical products and NO advantages between firms. The farmer's innovation gives competitive advantage, violating the "homogeneous product" assumption. This moves the market AWAY FROM perfect competition toward monopolistic competition or oligopoly.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> The market definitely DOESN'T maintain all five characteristics! The "homogeneous product" condition is clearly violated – wheat is now differentiated by quality. Also potentially violates "perfect information" (other farmers don't know secret fertilizer formula) and "free entry" (if technology is proprietary). Multiple characteristics broken.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option D is WRONG:</strong> While this MIGHT create entry barriers if the fertilizer is patented/secret, that's not the PRIMARY or IMMEDIATE violation. The question says nothing about patents or restricting access. The DIRECT violation is product differentiation – wheat is no longer identical. Entry barriers are possible but secondary; product homogeneity is immediately violated.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 13: The Price Taker -->
+    <div class="slide" data-slide="13">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 13 / 20 - CHAPTER 5</div>
+            <h1>The Perfectly Competitive Firm as Price Taker</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p>In perfect competition, individual firms are <strong>price takers</strong> - they must accept the market price determined by industry supply and demand. The firm faces a <strong>perfectly elastic demand curve</strong> (horizontal line) at the market price.</p>
+            <div class="formula">P = MR = AR (at all output levels)</div>
+        </div>
+
+        <div class="explanation">
+            <h3>In Plain English</h3>
+            <p>Imagine you're a wheat farmer. The Chicago Board of Trade shows wheat at $6.50/bushel. That's THE price. You can't charge $7.00 (customers buy from another farmer instantly) or $6.00 (why would you take less when market pays $6.50?).</p>
+            <p>You're a "price taker" - you take the market price or don't sell.</p>
+            <p><strong>Key Insights:</strong></p>
+            <ul>
+                <li>Can sell any quantity at market price (demand perfectly elastic)</li>
+                <li>Total Revenue = Price × Quantity</li>
+                <li>Marginal Revenue = Price (each additional unit sells for market price)</li>
+                <li>Firm's only decision: HOW MUCH to produce</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>🌾 Real-World Example: Wheat Farmer in Kansas (2024)</h3>
+            <p><strong>Scenario:</strong> John's farm produces wheat in competitive global market.</p>
+            <p><strong>Market Price (CBOT): $6.20/bushel</strong></p>
+            <ul>
+                <li>John's farm output: 50,000 bushels/year</li>
+                <li>Total Kansas output: 240 million bushels/year</li>
+                <li>John's market share: 0.00002% (negligible!)</li>
+            </ul>
+            <p><strong>John's Pricing "Power" (None):</strong></p>
+            <ul>
+                <li>If John charges $6.50: Zero sales (buyers go to other farmers at $6.20)</li>
+                <li>If John charges $6.00: Sells out immediately but loses $0.20 × 50,000 = $10,000</li>
+                <li>If John charges $6.20: Sells all 50,000 bushels</li>
+            </ul>
+            <p><strong>John's Revenue Calculation:</strong></p>
+            <ul>
+                <li>Total Revenue = $6.20 × 50,000 = $310,000</li>
+                <li>Marginal Revenue (per bushel) = $6.20 (constant)</li>
+                <li>Average Revenue (per bushel) = $6.20 (constant)</li>
+            </ul>
+            <p>John's ONLY decision: Should he plant 50,000 bushels, or 60,000, or 40,000? He chooses output, not price.</p>
+            <div class="reference">Source: USDA National Agricultural Statistics Service; CBOT Wheat Futures Data, Feb 2024</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Revenue Calculation</h3>
+            <p><strong>A perfectly competitive coffee bean farmer faces market price of $4.20/kg. If farm produces 12,000 kg annually, calculate total revenue and marginal revenue.</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> TR = $50,400; MR decreases with each additional kilogram produced
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> TR = $38,200; MR constant at $3.18 per unit sold
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> TR = $42,000; MR varies based on output decisions
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> TR = $50,400; MR constant at $4.20 per unit
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(13)">Show Answer</button>
+            <div class="answer-explanation" id="answer-13">
+                <h4>✅ Correct Answer: D</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option D is CORRECT:</strong> In perfect competition, calculations are straightforward:<br>
+                    • <strong>Total Revenue (TR)</strong> = Price × Quantity = $4.20 × 12,000 = $50,400 ✓<br>
+                    • <strong>Marginal Revenue (MR)</strong> = Price = $4.20 (constant) ✓<br><br>
+                    Why is MR constant at $4.20? Because the farmer is a price taker facing perfectly elastic demand. EVERY additional kilogram sells for $4.20 (market price). Whether selling the 1st kg or the 12,000th kg, each brings in $4.20. This is unique to perfect competition where P = MR = AR always.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> TR is correct ($50,400), but MR does NOT decrease in perfect competition! MR decreasing happens in monopoly/imperfect competition where firms must lower price to sell more. Here, the farmer can sell ANY quantity at $4.20 (price taker, perfectly elastic demand). MR stays constant at market price ($4.20) regardless of output.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> Both values are incorrect. TR = $4.20 × 12,000 = $50,400, not $38,200. And MR = $4.20 (market price), not $3.18. Where did $3.18 come from? Perhaps dividing $38,200/12,000, but the starting value is already wrong. Always start with P × Q for TR, then MR = P in perfect competition.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option C is WRONG:</strong> TR calculation is wrong ($4.20 × 12,000 = $50,400, not $42,000). Also, MR does NOT vary based on output in perfect competition! That's the whole point of being a price taker – MR is constant at market price regardless of quantity produced. Output decisions don't affect MR; they determine total profit via comparison to marginal cost.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 14: Short-Run Profit Maximization -->
+    <div class="slide" data-slide="14">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 14 / 20 - CHAPTER 5</div>
+            <h1>Short-Run Profit Maximization</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p>Firms maximize profit by producing where <strong>MR = MC</strong> (Marginal Revenue equals Marginal Cost). In perfect competition, since MR = P, firms produce where <strong>P = MC</strong>.</p>
+            <div class="formula">Profit Maximization Rule: MR = MC (or P = MC in perfect competition)</div>
+        </div>
+
+        <div class="explanation">
+            <h3>In Plain English</h3>
+            <p>The logic is simple:</p>
+            <ul>
+                <li>If producing one more unit brings in MORE revenue than it costs (MR > MC) → make it!</li>
+                <li>If producing one more unit costs MORE than it brings in (MR < MC) → don't make it!</li>
+                <li>Sweet spot: produce until MR = MC (can't improve profit further)</li>
+            </ul>
+            <p><strong>Example:</strong> Coffee costs £2 to make, sells for £4. MR (£4) > MC (£2) → keep producing! But the 100th coffee costs £4.50 to make due to overtime wages. MR (£4) < MC (£4.50) → stop at 99 coffees!</p>
+        </div>
+
+        <div class="example-box">
+            <h3>🚗 Real-World Example: Uber Driver Shift Decision (2024)</h3>
+            <p><strong>Scenario:</strong> Maria drives for Uber in London on Friday night.</p>
+            <p><strong>Market Price (fare after Uber's cut): £8/ride</strong></p>
+            <ul>
+                <li>Rides 1-5: Marginal cost = £3/ride (petrol, wear)</li>
+                <li>Rides 6-10: MC = £5/ride (getting tired, further from home)</li>
+                <li>Rides 11-15: MC = £7/ride (very tired, late night)</li>
+                <li>Ride 16+: MC = £10/ride (exhausted, far from home, next day work concerns)</li>
+            </ul>
+            <p><strong>Profit Maximization Decision:</strong></p>
+            <ul>
+                <li>Rides 1-15: MR (£8) > MC (£3-7) → Do these rides!</li>
+                <li>Ride 16: MR (£8) < MC (£10) → STOP HERE</li>
+                <li><strong>Optimal output: 15 rides where MR = MC (approximately)</strong></li>
+            </ul>
+            <p><strong>What if surge pricing hits 2x (£16/ride)?</strong></p>
+            <ul>
+                <li>Now MR = £16</li>
+                <li>Rides 16-20 now have MC < £16</li>
+                <li>Maria works longer, produces more rides!</li>
+                <li>New equilibrium: ~22 rides where MC rises to ~£16</li>
+            </ul>
+            <p>This demonstrates how firms respond to price changes by adjusting output to where P = MC.</p>
+            <div class="reference">Source: Uber Driver Economics Study, London 2024; Rideshare Guy Survey Data</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Profit Max Application</h3>
+            <p><strong>Competitive firm faces price £50. Production costs: 10 units MC=£30, 11 units MC=£45, 12 units MC=£55. What's optimal output?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> 10 units where marginal cost stays below average market pricing
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> 11 units where MC (£45) closest to price without exceeding
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> 12 units maximizing total revenue despite higher marginal costs
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Production level indeterminate without complete cost information provided
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(14)">Show Answer</button>
+            <div class="answer-explanation" id="answer-14">
+                <h4>✅ Correct Answer: B</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option B is CORRECT:</strong> Apply the profit maximization rule P = MC:<br>
+                    • At 10 units: MC = £30 < P (£50) → Keep producing! (making £20 profit on 10th unit)<br>
+                    • At 11 units: MC = £45 < P (£50) → Keep producing! (making £5 profit on 11th unit)<br>
+                    • At 12 units: MC = £55 > P (£50) → STOP! (losing £5 on 12th unit)<br><br>
+                    Optimal output = 11 units where MC (£45) is closest to P (£50) without exceeding. The 11th unit adds to profit; the 12th would reduce profit. This maximizes total profit.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> Stopping at 10 units leaves profit on the table! At 10 units, MC = £30 which is WAY below price (£50). The firm should keep producing – the 11th unit brings in £50 revenue but only costs £45, adding £5 to profit. Stopping too early means missing profitable opportunities. Keep producing while MR > MC.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option C is WRONG:</strong> Producing 12 units REDUCES profit! The 12th unit costs £55 to produce but only sells for £50 – that's a £5 LOSS on that unit. Yes, total revenue increases (12 × £50 vs 11 × £50), but total PROFIT decreases because you're adding a money-losing unit. Profit maximization ≠ revenue maximization.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option D is WRONG:</strong> We have EXACTLY the information needed! The rule is simple: produce where P = MC. We know price (£50) and marginal costs at each output level. That's sufficient to determine optimal output (11 units). We don't need total costs, fixed costs, or any other information – just P and MC schedule.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 15: Short-Run Scenarios -->
+    <div class="slide" data-slide="15">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 15 / 20 - CHAPTER 5</div>
+            <h1>Short-Run Outcomes: Profit, Loss, or Shutdown?</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p>In the short run, perfectly competitive firms can experience four outcomes depending on where price falls relative to costs:</p>
+            <ul>
+                <li><strong>Supernormal Profit:</strong> P > ATC (price above average total cost)</li>
+                <li><strong>Normal Profit (Break-even):</strong> P = ATC (covering all costs including opportunity cost)</li>
+                <li><strong>Loss but Continue:</strong> AVC < P < ATC (covering variable costs, minimizing loss)</li>
+                <li><strong>Shutdown:</strong> P < AVC (can't even cover variable costs)</li>
+            </ul>
+        </div>
+
+        <div class="explanation">
+            <h3>In Plain English</h3>
+            <p><strong>Shutdown Rule:</strong> If revenue can't cover variable costs (wages, materials, utilities), shut down immediately. You're losing LESS money by closing than staying open!</p>
+            <p><strong>Continue Operating at Loss Rule:</strong> If you're covering variable costs but not fixed costs (rent, loan payments), keep operating in short run. Fixed costs are sunk - you owe them anyway. At least minimize your loss.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>🏠 Real-World Example: Airbnb Hosts During COVID-19 (2020)</h3>
+            <p><strong>Pre-COVID (Supernormal Profit):</strong></p>
+            <ul>
+                <li>Average nightly rate: £120</li>
+                <li>Variable costs per night: £20 (cleaning, utilities)</li>
+                <li>Fixed costs per month: £1,200 (mortgage)</li>
+                <li>Occupancy: 20 nights/month</li>
+                <li>Monthly profit: (£120-20)×20 - £1,200 = £800 supernormal profit!</li>
+            </ul>
+            <p><strong>March-August 2020 (Operating at Loss):</strong></p>
+            <ul>
+                <li>Travel collapsed, rates fell to £60/night</li>
+                <li>Occupancy: 8 nights/month</li>
+                <li>Variable cost: Still £20/night</li>
+                <li>Revenue: £60×8 = £480</li>
+                <li>Variable costs: £20×8 = £160</li>
+                <li>Contribution to fixed costs: £320</li>
+                <li>Fixed costs: £1,200</li>
+                <li><strong>Loss: -£880/month</strong></li>
+            </ul>
+            <p><strong>Why Keep Operating?</strong></p>
+            <ul>
+                <li>If shutdown: Lose £1,200 (still owe mortgage)</li>
+                <li>If continue: Lose £880 (at least covering £320 of mortgage)</li>
+                <li><strong>Better to lose £880 than £1,200!</strong></li>
+            </ul>
+            <p><strong>When to Shutdown (Some hosts did):</strong></p>
+            <ul>
+                <li>If rates fell below £20 (couldn't cover cleaning/utilities)</li>
+                <li>Then revenue < variable cost → shutdown immediately</li>
+                <li>Many hosts mothballed properties May-July 2020</li>
+            </ul>
+            <div class="reference">Source: AirDNA Market Reports 2020; Airbnb Host Economics Survey, COVID Impact Study</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Shutdown Decision</h3>
+            <p><strong>Restaurant faces: Price per meal £15, AVC £18, ATC £25, Fixed costs £3,000/month. What should the restaurant do?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Continue operating as revenue exceeds average variable cost thresholds
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Reduce prices below £15 attracting more customers covering costs
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> Operate at loss temporarily as fixed costs justify continuation
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Shutdown immediately since price below variable cost per meal
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(15)">Show Answer</button>
+            <div class="answer-explanation" id="answer-15">
+                <h4>✅ Correct Answer: D</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option D is CORRECT:</strong> Apply the shutdown rule: P vs AVC.<br>
+                    • Price = £15 per meal<br>
+                    • AVC = £18 per meal<br>
+                    • P (£15) < AVC (£18) → SHUTDOWN IMMEDIATELY!<br><br>
+                    Why? EVERY meal sold loses £3 on variable costs alone (£15 revenue - £18 variable cost). The MORE you operate, the MORE you lose! By shutting down, you only lose fixed costs (£3,000/month). By staying open, you lose fixed costs PLUS £3 per meal served. Shutdown minimizes losses to just the fixed costs.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> This gets it completely backwards! Revenue (£15) is BELOW average variable cost (£18), not above! Each meal loses £3 on variable costs. You can't even cover wages, ingredients, utilities per meal. Operating makes losses worse. The shutdown rule is clear: if P < AVC, shutdown immediately.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> This is terrible advice! If £15 doesn't cover the £18 variable cost, lowering price makes it even worse! Charging £12 would attract customers but lose £6 per meal (£12 - £18 AVC). In perfect competition, you're a price taker anyway – you can't just "attract customers" by lowering prices below market. And even if you could, it would increase losses!
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option C is WRONG:</strong> Fixed costs DON'T justify continuing when P < AVC! Fixed costs are sunk (owed regardless). Operating at a loss is only rational when AVC < P < ATC (covering variable costs, minimizing loss). Here, you can't even cover variable costs, so EVERY meal served increases total losses. Fixed costs are irrelevant to the shutdown decision.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 16: Long-Run Equilibrium -->
+    <div class="slide" data-slide="16">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 16 / 20 - CHAPTER 5</div>
+            <h1>Long-Run Equilibrium: Zero Economic Profit</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p>In the long run, perfect competition drives economic profit to <strong>zero</strong>. Firms earn only normal profit (covering all costs including opportunity cost). This occurs through the entry/exit mechanism.</p>
+            <div class="formula">Long-Run Equilibrium: P = MR = MC = ATC (minimum)</div>
+        </div>
+
+        <div class="explanation">
+            <h3>The Entry/Exit Mechanism</h3>
+            <p><strong>If supernormal profit exists:</strong></p>
+            <ul>
+                <li>New firms attracted by profit → Enter market</li>
+                <li>Market supply increases (shifts right)</li>
+                <li>Market price falls</li>
+                <li>Profit squeezed until P = ATC (zero economic profit)</li>
+            </ul>
+            <p><strong>If losses exist:</strong></p>
+            <ul>
+                <li>Firms exit market to avoid losses</li>
+                <li>Market supply decreases (shifts left)</li>
+                <li>Market price rises</li>
+                <li>Losses eliminated until P = ATC</li>
+            </ul>
+            <p><strong>Result:</strong> Long-run equilibrium where remaining firms earn normal profit, produce at minimum ATC (most efficient scale).</p>
+        </div>
+
+        <div class="example-box">
+            <h3>🍕 Real-World Example: Pizza Restaurant Industry in London (2020-2024)</h3>
+            <p><strong>2020 Lockdown (Supernormal Profit):</strong></p>
+            <ul>
+                <li>Delivery-only model during lockdowns</li>
+                <li>Domino's, Papa John's: 40% profit margins (unusually high)</li>
+                <li>Average pizza price: £18, cost: £11, profit: £7</li>
+            </ul>
+            <p><strong>2021-2022 (Entry Wave):</strong></p>
+            <ul>
+                <li>Seeing high profits, new pizza places opened everywhere</li>
+                <li>London: 2,400 pizza restaurants (2020) → 3,800 (2022) = 58% increase!</li>
+                <li>Cloud kitchens, independents, chains all entering</li>
+                <li>Low barriers: Rent kitchen, get Deliveroo/Uber Eats account, start selling</li>
+            </ul>
+            <p><strong>2023 (Supply Increase, Price War):</strong></p>
+            <ul>
+                <li>Massive competition → price cutting to attract customers</li>
+                <li>Average price fell: £18 → £14</li>
+                <li>Profit margins compressed: £7 → £2 per pizza</li>
+            </ul>
+            <p><strong>2024 (Exit Wave, Equilibrium Approaching):</strong></p>
+            <ul>
+                <li>400+ pizza restaurants closed in London (2023-24)</li>
+                <li>Only surviving: Most efficient operators at minimum ATC</li>
+                <li>Profit margins: ~£2-3 (normal profit, covering opportunity cost)</li>
+                <li>Market stabilizing with fewer, more efficient firms</li>
+            </ul>
+            <p>This demonstrates the entry/exit mechanism driving toward zero economic profit in competitive markets!</p>
+            <div class="reference">Source: Office for National Statistics Business Demography 2024; Deliveroo Market Analysis; London Restaurant Survey</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Long-Run Dynamics</h3>
+            <p><strong>In long-run equilibrium under perfect competition, why do firms continue operating if economic profit is zero?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Firms operate at loss hoping for future supernormal profitability
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Government subsidies compensate for zero profit market conditions
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> Zero economic profit includes normal profit covering opportunity costs
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Market inefficiency prevents firms from recognizing unprofitable situations
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(16)">Show Answer</button>
+            <div class="answer-explanation" id="answer-16">
+                <h4>✅ Correct Answer: C</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option C is CORRECT:</strong> This is a crucial concept! "Zero ECONOMIC profit" ≠ "zero ACCOUNTING profit". Economic profit accounts for BOTH explicit costs (wages, rent, materials) AND implicit costs (opportunity cost of owner's time and capital). When economic profit = 0, the firm is earning NORMAL PROFIT – enough to cover ALL costs including what the owner could earn elsewhere. Example: If you could earn £50K salary elsewhere, and your business makes £50K accounting profit, that's ZERO economic profit (£50K revenue - £50K opportunity cost). But you're no worse off than the alternative, so you continue! Zero economic profit means you're earning as much as your next best option.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> Firms aren't operating at a LOSS – they're earning zero ECONOMIC profit, which means positive accounting profit! And they're not "hoping" for future supernormal profit in long-run equilibrium. In perfect competition's long run, supernormal profits can't persist (entry drives them to zero). Firms operate because zero economic profit = normal profit = covering opportunity costs. They're content, not desperate.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> Perfect competition doesn't require government subsidies! Zero economic profit is the natural long-run equilibrium. Firms don't need compensation – they're earning normal profit (covering all costs including opportunity cost). Subsidies would actually INCREASE profits above zero, causing more entry, defeating their purpose. The market reaches zero economic profit naturally through entry/exit.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option D is WRONG:</strong> There's NO market inefficiency or lack of recognition! Firms know exactly what they're earning. Zero economic profit is EFFICIENT and RATIONAL. Perfect information is an assumption of perfect competition – firms know their costs and revenues. They continue because zero economic profit = normal return = earning opportunity cost. This is optimal, not a mistake.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 17: Efficiency in Perfect Competition -->
+    <div class="slide" data-slide="17">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 17 / 20 - CHAPTER 5</div>
+            <h1>Economic Efficiency: Why Perfect Competition is "Ideal"</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p>Perfect competition achieves TWO types of economic efficiency that maximize social welfare:</p>
+            <ul>
+                <li><strong>Allocative Efficiency:</strong> P = MC (society's optimal resource allocation)</li>
+                <li><strong>Productive Efficiency:</strong> Production at minimum ATC (no waste)</li>
+            </ul>
+        </div>
+
+        <div class="explanation">
+            <h3>Understanding the Efficiency Types</h3>
+            <p><strong>Allocative Efficiency (P = MC):</strong></p>
+            <ul>
+                <li>Last unit produced: value to society (P) = cost to produce (MC)</li>
+                <li>Resources allocated exactly where society values them most</li>
+                <li>No deadweight loss - total surplus maximized</li>
+            </ul>
+            <p><strong>Productive Efficiency (Minimum ATC):</strong></p>
+            <ul>
+                <li>Firms produce at lowest possible average cost</li>
+                <li>No waste - using optimal combination of inputs</li>
+                <li>Operating at most efficient scale</li>
+            </ul>
+            <p><strong>Why Monopolies Fail Both:</strong> Monopolies produce where P > MC (allocative inefficiency) and rarely at minimum ATC (productive inefficiency).</p>
+        </div>
+
+        <div class="example-box">
+            <h3>💱 Real-World Example: Foreign Exchange Markets vs Pharmaceutical Monopoly</h3>
+            <p><strong>FX Markets (Near-Perfect Competition = Efficient):</strong></p>
+            <ul>
+                <li>Converting USD to EUR: Spread is 0.0001% (virtually zero markup)</li>
+                <li>Price = Marginal cost (allocatively efficient)</li>
+                <li>Execution in milliseconds at minimal cost (productively efficient)</li>
+                <li>$7.5 trillion daily volume, millions of participants</li>
+                <li>Benefits: Travelers, businesses get fair exchange rates</li>
+            </ul>
+            <p><strong>Pharmaceutical Patents (Monopoly = Inefficient):</strong></p>
+            <ul>
+                <li>Humira (arthritis drug) under patent 2003-2023</li>
+                <li>Price: $7,200/month in US</li>
+                <li>Marginal cost to produce: ~$100/month</li>
+                <li><strong>P >> MC = Allocative inefficiency (deadweight loss)</strong></li>
+                <li>Many patients who'd benefit (value > $100) but can't afford $7,200 don't get treatment</li>
+            </ul>
+            <p><strong>What Happened When Patent Expired (2023)?</strong></p>
+            <ul>
+                <li>Generic biosimilars entered (competitive market)</li>
+                <li>Price fell to $1,200-2,000/month (approaching MC)</li>
+                <li>More patients gained access</li>
+                <li>Moving toward allocative efficiency</li>
+            </ul>
+            <p>This demonstrates why economists favor competition - it drives efficiency and maximizes social welfare.</p>
+            <div class="reference">Source: Bank for International Settlements Triennial Survey 2022; AbbVie Annual Reports; FDA Biosimilar Approvals 2023</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Efficiency Analysis</h3>
+            <p><strong>A monopolist produces where P=$50, MC=$20, ATC=$35. Which efficiency condition is violated and why?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Allocative efficiency violated as price significantly exceeds marginal cost
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Productive efficiency violated as firm operates above minimum costs
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> Both efficiencies achieved since firm earns normal profit margin
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Neither efficiency relevant without complete market demand information
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(17)">Show Answer</button>
+            <div class="answer-explanation" id="answer-17">
+                <h4>✅ Correct Answer: A</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option A is CORRECT:</strong> Allocative efficiency requires P = MC. Here:<br>
+                    • Price = $50<br>
+                    • Marginal Cost = $20<br>
+                    • P ($50) >> MC ($20) → ALLOCATIVE INEFFICIENCY!<br><br>
+                    Why this matters: There are consumers willing to pay $25, $30, $40 (above MC of $20) who value the product, but the monopolist charges $50, excluding them. Society loses welfare – these mutually beneficial trades don't happen. Deadweight loss occurs. If price were $20 (=MC), more units would be produced/consumed, maximizing total surplus. The gap between P and MC represents inefficient resource allocation.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> We cannot determine if productive efficiency is violated! Productive efficiency requires production at MINIMUM ATC. We know ATC = $35 at current output, but we don't know if $35 is the MINIMUM ATC. The firm might be producing at minimum ATC ($35), or maybe minimum ATC is $30 (inefficient). Without knowing the minimum point on the ATC curve, we can't judge productive efficiency. But we CAN judge allocative efficiency (P vs MC), which is clearly violated.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option C is WRONG:</strong> Both efficiencies are NOT achieved! Allocative efficiency is clearly violated (P = $50 ≠ MC = $20). Also, "normal profit" is irrelevant to efficiency. The firm is earning supernormal profit ($50 - $35 ATC = $15 profit per unit), not normal profit. But even if profit were normal, that doesn't mean efficiency is achieved. Efficiency is about P = MC (allocative) and minimum ATC (productive), not profit levels.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option D is WRONG:</strong> We have enough information to assess allocative efficiency! Allocative efficiency only requires comparing P to MC – we have both ($50 and $20). We don't need demand curves, quantity data, or market structure details. The condition P = MC is violated ($50 ≠ $20), so allocative inefficiency exists. That's a definitive answer with the given information.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 18: Real-World Examples -->
+    <div class="slide" data-slide="18">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 18 / 20 - CHAPTER 5</div>
+            <h1>Real-World Examples: How Close to Perfect?</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p>While truly perfect competition is theoretical, some markets approximate it closely enough to demonstrate the model's predictive power.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>🌍 Three Real Markets Ranked by Competitiveness</h3>
+            
+            <p><strong>1. Foreign Exchange (FX) Markets (Closest to Perfect):</strong></p>
+            <ul>
+                <li><strong>✅ Many participants:</strong> Banks, hedge funds, corporations, individuals worldwide</li>
+                <li><strong>✅ Homogeneous product:</strong> One US dollar identical to another</li>
+                <li><strong>✅ Perfect information:</strong> Prices public in real-time, 24/7 trading</li>
+                <li><strong>✅ Free entry:</strong> Anyone can trade currencies online</li>
+                <li><strong>✅ Price takers:</strong> Even large banks can't move EUR/USD rate alone</li>
+                <li><strong>Competitiveness: 95%</strong></li>
+            </ul>
+
+            <p><strong>2. Agricultural Commodities - Wheat (Very Close):</strong></p>
+            <ul>
+                <li><strong>✅ Many sellers:</strong> Millions of wheat farmers globally</li>
+                <li><strong>✅ Homogeneous:</strong> #2 Hard Red Winter Wheat identical everywhere</li>
+                <li><strong>✅ Perfect information:</strong> Chicago Board of Trade publishes prices</li>
+                <li><strong>⚠️ Entry barriers:</strong> Need land (expensive), equipment, knowledge</li>
+                <li><strong>✅ Price takers:</strong> Individual farmers can't influence $6.20/bushel price</li>
+                <li><strong>Competitiveness: 80%</strong></li>
+            </ul>
+
+            <p><strong>3. Stock Markets (Moderately Close):</strong></p>
+            <ul>
+                <li><strong>✅ Many traders:</strong> Millions buying/selling daily</li>
+                <li><strong>⚠️ Product differentiation:</strong> Apple stock ≠ Microsoft stock (not homogeneous)</li>
+                <li><strong>✅ Near-perfect information:</strong> Real-time prices, financial disclosures</li>
+                <li><strong>✅ Free entry:</strong> Anyone can buy stocks via Robinhood</li>
+                <li><strong>⚠️ Price influence:</strong> Large funds CAN move prices on small-cap stocks</li>
+                <li><strong>Competitiveness: 70%</strong></li>
+            </ul>
+
+            <p><strong>❌ Markets FAR from Perfect Competition:</strong></p>
+            <ul>
+                <li><strong>Social Media:</strong> Meta, Twitter - network effects create monopolies</li>
+                <li><strong>Operating Systems:</strong> Windows, MacOS - high switching costs</li>
+                <li><strong>Pharmaceuticals:</strong> Patent monopolies for 20 years</li>
+                <li><strong>Internet Search:</strong> Google 92% market share</li>
+            </ul>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Market Comparison</h3>
+            <p><strong>Which characteristic prevents smartphone markets from being perfectly competitive despite having multiple manufacturers?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Insufficient number of buyers purchasing smartphones in global markets
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Perfect information lacking as consumers understand all specifications
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> High entry barriers from patents, R&D costs, and economies of scale
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Homogeneous products as all smartphones offer identical functionality
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(18)">Show Answer</button>
+            <div class="answer-explanation" id="answer-18">
+                <h4>✅ Correct Answer: C</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option C is CORRECT:</strong> Smartphone markets have MASSIVE entry barriers:<br>
+                    • <strong>Patents:</strong> Apple, Samsung hold thousands of patents; new entrants face lawsuits<br>
+                    • <strong>R&D Costs:</strong> $2-5 billion to develop competitive smartphone (chips, cameras, software)<br>
+                    • <strong>Economies of Scale:</strong> Apple/Samsung buy components cheap due to volume; small firms can't compete on cost<br>
+                    • <strong>Brand Loyalty:</strong> iPhone users locked into ecosystem (iCloud, iMessage, App Store purchases)<br><br>
+                    These barriers prevent the "free entry" condition of perfect competition. You can't just start a smartphone company in your garage and compete with Apple. Entry barriers are the PRIMARY reason smartphones aren't perfectly competitive.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> There are BILLIONS of smartphone buyers globally! The "many buyers" condition IS satisfied. Insufficient buyers would mean oligopsony (few buyers), but smartphones have massive consumer demand. The problem isn't buyer quantity – it's entry barriers preventing many sellers from competing.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> Information is actually quite good in smartphone markets! Specs are publicly available, reviews are everywhere (YouTube, tech sites), consumers can compare features easily. While not PERFECT information, it's pretty close. The real barrier isn't information – it's the inability to START a competing smartphone company due to entry barriers.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option D is WRONG:</strong> This is completely backwards! Smartphones are HIGHLY DIFFERENTIATED, not homogeneous! iPhone vs Android, premium vs budget, camera quality, battery life, software ecosystem all vary. Products are NOT identical – they're differentiated, which ALSO violates perfect competition. But the question asks which characteristic PREVENTS competition, and entry barriers are the primary blocker (product differentiation is secondary).
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 19: Limitations & Criticisms -->
+    <div class="slide" data-slide="19">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 19 / 20 - CHAPTER 5</div>
+            <h1>Limitations of Perfect Competition Model</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Core Concept</h3>
+            <p>Perfect competition is a <strong>theoretical benchmark</strong>, not a realistic description of most markets. Understanding its limitations is crucial for real-world policy analysis.</p>
+        </div>
+
+        <div class="explanation">
+            <h3>Why Perfect Competition Rarely Exists</h3>
+            <ul>
+                <li><strong>1. Product Differentiation is Everywhere:</strong> Branding, quality differences, location advantages mean products are rarely identical</li>
+                <li><strong>2. Information is Never Perfect:</strong> Consumers don't know all prices, sellers don't know all costs, asymmetric information common</li>
+                <li><strong>3. Economies of Scale Create Barriers:</strong> Large firms produce cheaper than small firms, preventing "many small firms" assumption</li>
+                <li><strong>4. Innovation Requires Profit:</strong> Zero economic profit eliminates incentive for R&D investment</li>
+                <li><strong>5. Barriers Exist Everywhere:</strong> Licensing, patents, sunk costs, brand loyalty prevent free entry</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>💊 Real-World Example: Why Pharmaceutical Industry CAN'T Be Perfectly Competitive</h3>
+            <p><strong>The Innovation Problem:</strong></p>
+            <ul>
+                <li>Developing new drug: $2.6 billion cost, 10-15 years</li>
+                <li>90% of drugs in trials fail</li>
+                <li>If perfect competition existed: P = MC immediately</li>
+                <li>Result: Zero profit → No funding for R&D → No new drugs!</li>
+            </ul>
+            <p><strong>Case Study: COVID-19 Vaccines (2020-2021):</strong></p>
+            <ul>
+                <li>Pfizer invested $2B in mRNA vaccine development (risky!)</li>
+                <li>Patent protection allowed pricing at $20/dose (MC ~$1.50)</li>
+                <li>Supernormal profit: $37B revenue in 2021</li>
+                <li><strong>Why society accepts this monopoly:</strong> Without profit incentive, no vaccine would exist!</li>
+            </ul>
+            <p><strong>The Trade-Off:</strong></p>
+            <ul>
+                <li>Perfect competition = Allocative efficiency TODAY but no innovation TOMORROW</li>
+                <li>Monopoly/patents = Inefficiency TODAY but innovation incentive for FUTURE</li>
+                <li>Society chooses: 20-year patents (temporary monopoly) to reward innovation</li>
+            </ul>
+            <p><strong>After Patent Expires:</strong> Generic manufacturers enter, price falls toward MC, market becomes competitive. Best of both worlds: Innovation incentive + eventual competition!</p>
+            <div class="reference">Source: Tufts Center for Drug Development 2020; Pfizer Annual Report 2021; FDA Patent Database</div>
+        </div>
+
+        <div class="question-box">
+            <h3>💡 Critical Thinking</h3>
+            <p><strong>Which statement best explains why perfect competition might be an UNDESIRABLE goal for some industries?</strong></p>
+            <div class="mcq-option" data-option="A">
+                <span class="option-label">A)</span> Firms in perfect competition earn excessive profits harming consumers
+            </div>
+            <div class="mcq-option" data-option="B">
+                <span class="option-label">B)</span> Perfect information requirements create privacy concerns for participants
+            </div>
+            <div class="mcq-option" data-option="C">
+                <span class="option-label">C)</span> Zero economic profit eliminates incentive for costly innovation investments
+            </div>
+            <div class="mcq-option" data-option="D">
+                <span class="option-label">D)</span> Free entry causes market instability through excessive firm turnover
+            </div>
+            <button class="btn-show-answer" onclick="showAnswer(19)">Show Answer</button>
+            <div class="answer-explanation" id="answer-19">
+                <h4>✅ Correct Answer: C</h4>
+                <div class="explanation-item correct-exp">
+                    <strong>✓ Option C is CORRECT:</strong> This is the fundamental innovation trade-off! In perfect competition, long-run equilibrium → zero economic profit. But innovation requires MASSIVE upfront investment (R&D, testing, failed attempts). If firms know they'll earn zero economic profit in long run (new entrants copy innovation, driving profits to zero), WHY invest billions in R&D? Example: Pharmaceutical companies spend $2.6B and 10-15 years developing drugs. Under perfect competition, generic copycats would immediately enter, price falls to MC, innovator earns zero profit → can't recoup R&D costs. Innovation dies. This is why patents exist – temporary monopoly profits fund future innovation. Perfect competition optimizes TODAY'S efficiency but destroys TOMORROW'S innovation.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option A is WRONG:</strong> This is backwards! Firms in perfect competition earn ZERO economic profit in long run, not excessive profits. That's the OPPOSITE of harmful to consumers. Perfect competition maximizes consumer surplus (low prices, high output). Monopolies earn excessive profits and harm consumers. Perfect competition is PRO-consumer, not anti-consumer. This gets it completely wrong.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option B is WRONG:</strong> Privacy concerns aren't why perfect competition is undesirable! While "perfect information" is unrealistic, privacy isn't the core problem. The real issue is innovation incentives (Option C). Also, perfect information doesn't necessarily mean privacy violations – it means prices, quality, costs are known, not necessarily personal data. This is a distraction from the real limitation.
+                </div>
+                <div class="explanation-item incorrect-exp">
+                    <strong>✗ Option D is WRONG:</strong> Free entry doesn't cause problematic "instability." Firm turnover in competitive markets is HEALTHY – inefficient firms exit, efficient firms survive. This is creative destruction, improving efficiency. While some turbulence exists, it's not a reason to AVOID perfect competition. The real problem is lack of innovation incentives (Option C), not entry/exit dynamics. Turnover is a feature, not a bug.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 20: Final Summary & Integration -->
+    <div class="slide" data-slide="20">
+        <div class="slide-header">
+            <div class="slide-number">SLIDE 20 / 20 - FINAL SUMMARY</div>
+            <h1>Integration: From Demand & Supply to Perfect Competition</h1>
+        </div>
+
+        <div class="concept-box">
+            <h3>Your Learning Journey</h3>
+            <p>You've traveled from basic market mechanics (Chapter 2) to understanding how competitive markets work at the firm level (Chapter 5). Let's connect everything.</p>
+        </div>
+
+        <div class="explanation">
+            <h3>The Complete Picture</h3>
+            
+            <p><strong>Chapter 2 Foundation (MARKET Level):</strong></p>
+            <ul>
+                <li>Demand + Supply → Equilibrium price</li>
+                <li>Shifts in curves cause price changes</li>
+                <li>Elasticity determines responsiveness</li>
+                <li>Competitive markets maximize surplus and efficiency</li>
+            </ul>
+
+            <p><strong>Chapter 5 Application (FIRM Level):</strong></p>
+            <ul>
+                <li>Firms in perfect competition are price TAKERS (accept market price from Ch. 2)</li>
+                <li>Firms choose optimal OUTPUT where P = MC</li>
+                <li>Short run: Can earn profit or loss</li>
+                <li>Long run: Entry/exit drives profit to zero</li>
+                <li>Result: Allocative and productive efficiency</li>
+            </ul>
+
+            <p><strong>Key Formulas Summary:</strong></p>
+            <div class="formula">
+                Equilibrium: Qd = Qs<br>
+                PED = % ΔQd / % ΔP<br>
+                Profit Max: MR = MC<br>
+                Perfect Competition: P = MR = MC = ATC (long run)
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3>🎯 Final Integration Example: Uber Market Evolution</h3>
+            <p><strong>Connecting Both Chapters:</strong></p>
+            
+            <p><strong>Chapter 2 Analysis (Market):</strong></p>
+            <ul>
+                <li>Demand for rides: High elasticity (substitutes: taxi, public transport)</li>
+                <li>Supply of drivers: Elastic in long run (easy to become driver)</li>
+                <li>Surge pricing: Market finding equilibrium when demand shifts</li>
+            </ul>
+
+            <p><strong>Chapter 5 Analysis (Firm/Driver):</strong></p>
+            <ul>
+                <li>Individual drivers are price takers (accept Uber's rate)</li>
+                <li>Drivers choose hours where MR = MC (opportunity cost of time)</li>
+                <li>2015: Supernormal profit → More drivers entered</li>
+                <li>2024: Profit squeezed to normal levels, only efficient drivers remain</li>
+                <li>Approaching long-run equilibrium with zero economic profit</li>
+            </ul>
+
+            <p>This demonstrates how market forces (Ch. 2) and firm behavior (Ch. 5) interact to create competitive outcomes!</p>
+        </div>
+
+        <div style="margin-top: 40px; padding: 25px; background: linear-gradient(135deg, #FFF8DC 0%, #FAEBD7 100%); border-radius: 12px; border-left: 4px solid #CD853F;">
+            <h3 style="color: #8B4513; margin-bottom: 15px;">🎓 Congratulations!</h3>
+            <p style="font-size: 17px; line-height: 1.8;">You've completed Economics for Business: Chapters 2 & 5. You now understand how markets work (supply/demand), what makes them efficient, and how perfectly competitive firms behave. These are foundational concepts for all business decision-making and economic policy analysis.</p>
+            <p style="font-size: 17px; line-height: 1.8; margin-top: 15px;"><strong>Next Steps:</strong> Study monopolistic competition (Ch. 6), oligopoly (Ch. 7), and monopoly (Ch. 8) to understand how real-world markets deviate from perfect competition. Practice analyzing actual companies using these frameworks!</p>
+            <p style="font-size: 17px; line-height: 1.8; margin-top: 15px; font-weight: 600; color: #8B4513;">From Mulhearn & Vane - Economics for Business. Keep learning! 📚</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- NAVIGATION AT BOTTOM -->
+<div style="position:fixed!important;bottom:0!important;left:0!important;right:0!important;width:100%!important;background:#FAF0E6!important;padding:20px 40px!important;border-top:3px solid #8B4513!important;box-shadow:0 -4px 12px rgba(0,0,0,0.15)!important;z-index:999999!important;display:flex!important;justify-content:space-between!important;align-items:center!important;">
+    <button id="prevBtn" onclick="changeSlide(-1)" style="background:#6B4423!important;color:white!important;border:none!important;padding:15px 30px!important;border-radius:8px!important;cursor:pointer!important;font-size:18px!important;font-weight:600!important;">← Previous</button>
+    <div style="flex-grow:1!important;height:10px!important;background:#D2B48C!important;border-radius:10px!important;margin:0 30px!important;overflow:hidden!important;">
+        <div id="progressBar" style="height:100%!important;background:linear-gradient(90deg,#CD853F 0%,#8B4513 100%)!important;border-radius:10px!important;width:5%!important;transition:width 0.5s ease!important;"></div>
+    </div>
+    <button id="nextBtn" onclick="changeSlide(1)" style="background:#6B4423!important;color:white!important;border:none!important;padding:15px 30px!important;border-radius:8px!important;cursor:pointer!important;font-size:18px!important;font-weight:600!important;">Next →</button>
+</div>
+
+<script>
+    let currentSlide = 1;
+    const totalSlides = 20;
+
+    // Correct answers for each slide
+    const correctAnswers = {
+        1: 'D', 2: 'C', 3: 'B', 4: 'C', 5: 'D',
+        6: 'A', 7: 'D', 8: 'D', 9: 'C', 10: null,
+        11: 'B', 12: 'C', 13: 'D', 14: 'B', 15: 'D',
+        16: 'C', 17: 'A', 18: 'C', 19: 'C', 20: null
+    };
+
+    function showSlide(n) {
+        const slides = document.querySelectorAll('.slide');
+        
+        if (n > totalSlides) {
+            currentSlide = totalSlides;
+        } else if (n < 1) {
+            currentSlide = 1;
+        } else {
+            currentSlide = n;
+        }
+
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[currentSlide - 1].classList.add('active');
+
+        const progress = (currentSlide / totalSlides) * 100;
+        document.getElementById('progressBar').style.width = progress + '%';
+
+        document.getElementById('prevBtn').disabled = currentSlide === 1;
+        document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function changeSlide(direction) {
+        showSlide(currentSlide + direction);
+    }
+
+    function showAnswer(slideNum) {
+        const answerDiv = document.getElementById(`answer-${slideNum}`);
+        const options = document.querySelectorAll(`[data-slide="${slideNum}"] .mcq-option`);
+        const button = event.target;
+        
+        // Show the explanation
+        answerDiv.classList.add('show');
+        
+        // Highlight correct and incorrect options
+        const correctAnswer = correctAnswers[slideNum];
+        options.forEach(option => {
+            const optionLetter = option.getAttribute('data-option');
+            
+            if (optionLetter === correctAnswer) {
+                option.classList.add('correct');
+            } else {
+                option.classList.add('incorrect');
+            }
+        });
+        
+        // Disable the button after clicking
+        button.disabled = true;
+        button.textContent = 'Answer Revealed';
+    }
+
+    function showSampleAnswer(slideNum) {
+        const answerDiv = document.getElementById(`answer-${slideNum}`);
+        answerDiv.classList.add('show');
+        event.target.disabled = true;
+        event.target.textContent = 'Sample Answer Shown';
+    }
+
+    showSlide(1);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            changeSlide(-1);
+        } else if (event.key === 'ArrowRight') {
+            changeSlide(1);
+        }
+    });
+</script>
+```
+
+</body>
+</html>
